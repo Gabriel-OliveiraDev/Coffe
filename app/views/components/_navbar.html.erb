@@ -1,22 +1,33 @@
-<nav class="bg-yellow-500 py-4">
-    <div class="container mx-auto flex justify-between items-center">
+<div data-controller="application">
+    <nav class="bg-yellow-500 py-5">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <%= link_to "Cafeteria", root_path, class:"text-white text-xl font-semibold bg-yellow-800 px-3 py-3 rounded-md" %>
+            </div>
+            <div class="hidden md:flex space-x-1">
+                <%= link_to "Home", root_path, class:"text-white font-semibold bg-yellow-800 px-3 py-2 rounded-md hover:bg-yellow-700" %>
+                <!-- Adicionar Pra cima -->
+                <%= link_to "Entrar", root_path, class:"text-white font-semibold bg-yellow-800 px-3 py-2 rounded-md hover:bg-yellow-700" %>
+                <%= render "components/dropdown" %>
+            </div>
 
-        <a href="#" class="text-white text-xl font-semibold">Logo</a>
-        <%= image_tag "Cafe-icon.png" %>
-
-        <div class="hidden md:block">
-            <%= link_to "Home", root_path, class:"text-white hover:bg-orange-600 px-3 py-2 rounded-md" %>
-            <a href="#" class="text-white hover:bg-orange-600 px-3 py-2 rounded-md">Sobre</a>
-            <a href="#" class="text-white hover:bg-orange-600 px-3 py-2 rounded-md">Serviços</a>
-            <a href="#" class="text-white hover:bg-orange-600 px-3 py-2 rounded-md">Contato</a>
+            <div class="md:hidden">
+                <button data-action="click->application#toggleMenu" class="text-white focus:outline-none" id="menu-toggle">
+                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-
-        <div class="md:hidden">
-            <button class="text-white focus:outline-none">
-                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
+    </nav>
+    <div data-application-target="menu" class="hidden md:hidden bg-yellow-700">
+        <a href="#" class="block text-white hover:bg-yellow-400 px-4 py-2">Home</a>
+        <a href="#" class="block text-white hover:bg-yellow-400 px-4 py-2">Sobre</a>
+        <a href="#" class="block text-white hover:bg-yellow-400 px-4 py-2">Serviços</a>
+        <a href="#" class="block text-white hover:bg-yellow-400 px-4 py-2">Contato</a>
+        <!-- Adicionar Pra cima -->
+        <%= link_to "Entrar", root_path, class:"text-white bg-yellow-800 px-3 py-2 rounded-md hover:bg-yellow-700" %>
+        <%= render "components/dropdown" %>
     </div>
-</nav>
+
+</div>
