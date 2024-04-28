@@ -1,4 +1,4 @@
-<div data-controller="application">
+<div data-controller="application" class="shadow-lg rounded-md">
     <nav class="bg-yellow-500 py-5">
         <div class="container mx-auto flex justify-between items-center">
             <div>
@@ -26,8 +26,10 @@
         <a href="#" class="block text-white hover:bg-yellow-400 px-4 py-2">Serviços</a>
         <a href="#" class="block text-white hover:bg-yellow-400 px-4 py-2">Contato</a>
         <!-- Adicionar Pra cima -->
-        <%= link_to "Entrar", root_path, class:"text-white bg-yellow-800 px-3 py-2 rounded-md hover:bg-yellow-700" %>
+        <div data-application-target="menu" class="hidden">
+        <%= link_to "Entrar", root_path, class:"text-white bg-yellow-800 px-3 py-2.5 rounded-md hover:bg-yellow-700" %>
         <%= render "components/dropdown" %>
+        </div>
     </div>
 
 </div>
