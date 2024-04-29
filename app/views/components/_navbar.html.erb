@@ -8,7 +8,11 @@
                 <%= link_to "Home", root_path, class:"text-white font-semibold bg-yellow-800 px-3 py-2 rounded-md hover:bg-yellow-700" %>
                 <!-- Adicionar Pra cima -->
                 <%= render "components/login" %>
-                <%= render "components/dropdown" %>
+                
+                <% if !@user %>
+                    <%= render "components/register" %>
+                <% end %>
+                
             </div>
 
             <div class="md:hidden">
