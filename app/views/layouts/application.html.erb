@@ -13,10 +13,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= render "components/navbar" %>
+  <body class="bg-slate-200">
+    <%= render "components/navbar/nav" %>
     <%= render "components/flash" %>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-12 px-5 flex">
       <%= yield %>
     </main>
   </body>
