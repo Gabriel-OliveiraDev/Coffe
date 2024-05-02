@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :products
   root 'home#index'
+
+  resources :products
 
   devise_for :suppliers, controllers: {
     sessions: 'suppliers/sessions',
@@ -11,5 +12,4 @@ Rails.application.routes.draw do
     sessions: 'clients/sessions',
     registrations: 'clients/registrations'
   }
-
 end

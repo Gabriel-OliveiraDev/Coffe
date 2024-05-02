@@ -14,7 +14,7 @@ export default class extends Controller {
   hideListaWithDelay() {
     this.timeoutId = setTimeout(() => {
       this.listaTarget.classList.add('hidden');
-    }, 50); // Tempo de espera em milissegundos (50ms)
+    }, 70); // Tempo de espera em milissegundos (70ms)
   }
 
   // Método para limpar o tempo de espera
