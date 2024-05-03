@@ -1,5 +1,5 @@
-<div class="container border border-gray-500 rounded m-5">
-  <div id="<%= dom_id product %>" class="w-full md:w-1/2 px-4 mx-auto">
+<div class="container flex justify-center text-center border rounded-md border-gray-900">
+  <div id="<%= dom_id product %>" class="w-full md:w-2/3 lg:w-1/2 px-4 mx-auto">
     <p class="my-3 md:my-5">
       <strong class="block font-medium mb-1">Name:</strong>
       <%= product.name %>
@@ -8,11 +8,6 @@
     <p class="my-3 md:my-5">
       <strong class="block font-medium mb-1">Price:</strong>
       <%= product.price %>
-    </p>
-
-    <p class="my-3 md:my-5">
-      <strong class="block font-medium mb-1">Supplier:</strong>
-      <%= product.supplier_id %>
     </p>
 
     <p class="my-3 md:my-5">
@@ -26,8 +21,13 @@
     </p>
           
     <% if action_name != "show" %>
-      <%= link_to "Show this product", product, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      <%= link_to "Edit this product", edit_product_path(product), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium mt-5" %>
+      <div class="flex justify-center md:justify-start mt-5">
+        <%= link_to "Mostrar Produto", product, class: "rounded-lg py-3 mx-2 px-5 bg-gray-100 inline-block font-medium" %>
+        
+        <% if current_supplier.id == product.supplier_id %>
+          <%= link_to "Editar Produto", edit_product_path(product), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <% end %>
+      </div>
       <hr class="mt-4 md:mt-6">
     <% end %>
   </div>

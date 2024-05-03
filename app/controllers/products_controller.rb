@@ -21,7 +21,10 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
+
     @product = Product.new(product_params)
+    # current_supplier.id is a default method from devise to catch session supplier_id
+    @product.supplier_id = current_supplier.id
 
     respond_to do |format|
       if @product.save
@@ -65,6 +68,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :price, :supplier_id, :quantity, :description)
+      params.require(:product).permit(:name, :price, :quantity, :description)
     end
 end
